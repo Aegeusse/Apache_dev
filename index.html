@@ -3,44 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aegeusse - Accueil</title>
+    <title>Aegeusse - Beau Gosse Raciste</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
         
         .container {
+            position: relative;
+            z-index: 1;
             text-align: center;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 80px 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin: 0;
+            font-size: 3em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
         
-        p {
-            color: #666;
-            font-size: 1.2em;
-            margin-top: 20px;
+        .subtitle {
+            color: #555;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .decorative-line {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 30px auto;
+            border-radius: 2px;
         }
     </style>
 </head>
 <body>
+    <div class="stars" id="stars"></div>
+    
     <div class="container">
-        <h1>Bienvenue sur le site de Aegeusse</h1>
-        <p>Votre contenu ici</p>
+        <h1>Aegeusse Beau Gosse Raciste</h1>
+        <div class="decorative-line"></div>
+        <p class="subtitle">Bienvenue sur mon espace personnel ✨</p>
+        <div class="badge">🌟 Style & Élégance</div>
+        <div class="badge">💎 Classe Premium</div>
     </div>
+    
+    <script>
+        // Génération des étoiles
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
 </html>
